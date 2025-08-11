@@ -14,8 +14,10 @@
         <extension point="xbmc.addon.metadata">
             <platform>all</platform>
             <summary>EPG Grabber</summary>
-            <description lang="en">Grabbs EPG Data from Different IPTV Sources and generate an xmltv Guide</description>
-            <description lang="de">Grabbt EPG Daten von verschiedenen IPTV Quellen und erstellt eine guide.xml</description>
+            <description lang="en">Grabbs EPG Data from Different IPTV Sources and generate an xmltv
+                Guide</description>
+            <description lang="de">Grabbt EPG Daten von verschiedenen IPTV Quellen und erstellt eine
+                guide.xml</description>
             <source>https://github.com/DEvmIb/kodi_repo/tree/master/service.takealug.epg-grabber/</source>
             <forum>https://www.kodinerds.net/index.php/Thread/64901-RELEASE-Takealug-EPG-Grabber/</forum>
             <assets>
@@ -29,10 +31,15 @@
             <news lang="en">1.1.8+matrix Overhaul</news>
         </extension>
     </addon>
-    <addon id="repository.DEvmIb" name="DEvmIb Repository" version="1.0" provider-name="DEvmIb">
+    <addon id="repository.ad0lar" name="DEvmIb Repository" version="1.0"
+        provider-name="Ad0lar, fds97AVVS, DEvmIb">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0" />
+        </requires>
         <extension point="xbmc.addon.repository" name="DEvmIb Repository">
-            <dir minversion="19.0.0">
-                <info compressed="false">https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/addons.xml</info>
+            <dir>
+                <info compressed="false">
+                    https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/addons.xml</info>
                 <checksum>https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/addons.xml.md5</checksum>
                 <datadir zip="false">https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/</datadir>
             </dir>
@@ -42,6 +49,10 @@
             <description></description>
             <disclaimer></disclaimer>
             <platform>all</platform>
+            <assets>
+                <icon>icon.png</icon>
+                <fanart>icon.png</fanart>
+            </assets>
         </extension>
     </addon>
 </addons>
