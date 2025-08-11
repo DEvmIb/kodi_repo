@@ -6,11 +6,7 @@
             <import addon="xbmc.python" version="2.25.0" />
             <import addon="script.module.requests" />
         </requires>
-        <extension point="xbmc.service" library="service.py" start="startup">
-            <dir minversion="19.0.0">
-                <datadir zip="false">https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/</datadir>
-            </dir>
-        </extension>
+        <extension point="xbmc.service" library="service.py" start="startup"/>
         <extension point="xbmc.addon.metadata">
             <platform>all</platform>
             <summary>EPG Grabber</summary>
