@@ -40,7 +40,7 @@ function _from_git {
     rm -rf $_tmp/$3/.[^.]*
     _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p')
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
-    (cd $_tmp; zip -r -9 $3 -) > files/$3-$_version.zip
+    (cd $_tmp; zip -r -9 ../files/$3-$_version.zip $3 1>/dev/null)
     if [ $? -ne 0 ]; then >&2 echo zipping failed.; rm -f files/$3-$_version.zip; rm -rf $_tmp; return; fi
     zip -T files/$3-$_version.zip 1>/dev/null
     if [ $? -ne 0 ]; then >&2 echo testing zip failed.; rm -f files/$3-$_version.zip; rm -rf $_tmp; return; fi
@@ -60,11 +60,11 @@ EOF
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
 
 # myself
-cat addon.xml >> addons.xml
+tal -n +2 addon.xml >> addons.xml
 
 
 #end
-cat << EOF > addons.xml
+cat << EOF >> addons.xml
 </addons>
 EOF
 
