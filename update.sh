@@ -60,7 +60,7 @@ EOF
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
 
 # myself
-tal -n +2 addon.xml >> addons.xml
+tail -n +2 addon.xml >> addons.xml
 
 
 #end
