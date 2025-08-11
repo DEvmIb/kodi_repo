@@ -1,12 +1,12 @@
-_bins=zip git date
-_packs=zip git
-if ! hash $_bins &> /dev/null
+_bins=(zip git date)
+_packs=(zip git)
+if ! hash ${_bins[@]} &> /dev/null
 then
-    apt -y install $_packs 2>/dev/null
-    apk add --no-cache $_packs 2>/dev/null
+    apt -y install ${_packs[@]} 2>/dev/null
+    apk add --no-cache ${_packs[@]} 2>/dev/null
 fi
 
-if ! hash $_bins &> /dev/null
+if ! hash ${_bins[@]} &> /dev/null
 then
     echo missing bins
     exit 1
@@ -20,9 +20,11 @@ _gitea_url=$(curl -s -X RAW http://keyserver/gitea-url)
 
 function _from_git {
     local _tmp _version
-    echo processing $1 $2 $3
+    >&2 echo processing $1 $2 $3
     _tmp=$(date +%s%N)
+    if [ "$_tmp" == "" ]; then >&2 echo _tmp is empty; return; fi
     mkdir -p have
+    mkdir -p files
     _last=$(git ls-remote https://$1/$2/$3|head -n1|cut -f1)
     if [ "$_last" == "" ]; then >&2 echo git error. last checkout is empty.; return; fi
     if [ -e "have/$_last" ]
@@ -31,9 +33,9 @@ function _from_git {
         cat have/$_last >> addons.xml
         return
     fi
-    if [ "$_tmp" == "" ]; then >&2 echo _tmp is empty; return; fi
+    
     mkdir -p $_tmp
-    git clone https://$1/$2/$3 $_tmp/$3
+    git clone https://$1/$2/$3 $_tmp/$3 &>/dev/null
     if [ $? -ne 0 ]; then >&2 echo git error; rm -rf $_tmp; return; fi
     rm -rf $_tmp/$3/.*
     _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p')
