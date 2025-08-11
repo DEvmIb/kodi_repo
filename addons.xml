@@ -8,7 +8,7 @@
         </requires>
         <extension point="xbmc.service" library="service.py" start="startup">
             <dir minversion="19.0.0">
-                <datadir zip="false">https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/</datadir>
+                <datadir>https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/addons.xml</datadir>
             </dir>
         </extension>
         <extension point="xbmc.addon.metadata">
@@ -41,7 +41,7 @@
                 <info compressed="false">
                     https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/addons.xml</info>
                 <checksum>https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/addons.xml.md5</checksum>
-                <datadir zip="false">https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/</datadir>
+                <datadir>https://raw.githubusercontent.com/DEvmIb/kodi_repo/master/zip</datadir>
             </dir>
         </extension>
         <extension point="xbmc.addon.metadata">
