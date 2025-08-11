@@ -40,14 +40,15 @@ function _from_git {
     rm -rf $_tmp/$3/.[^.]*
     _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p')
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
-    (cd $_tmp; zip -r -9 ../files/$3-$_version.zip $3 1>/dev/null)
-    if [ $? -ne 0 ]; then >&2 echo zipping failed.; rm -f files/$3-$_version.zip; rm -rf $_tmp; return; fi
-    zip -T files/$3-$_version.zip 1>/dev/null
-    if [ $? -ne 0 ]; then >&2 echo testing zip failed.; rm -f files/$3-$_version.zip; rm -rf $_tmp; return; fi
+    mkdir -p files/$3
+    (cd $_tmp; zip -r -9 ../files/$3/$3-$_version.zip $3 1>/dev/null)
+    if [ $? -ne 0 ]; then >&2 echo zipping failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
+    zip -T files/$3/$3-$_version.zip 1>/dev/null
+    if [ $? -ne 0 ]; then >&2 echo testing zip failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
     tail -n +2 $_tmp/$3/addon.xml > have/$_last
     rm -rf $_tmp
     git add have/$_last
-    git add files/$3-$_version.zip
+    git add files/$3/$3-$_version.zip
     >&2 echo finished
 }
 
