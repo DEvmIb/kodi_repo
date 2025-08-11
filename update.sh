@@ -37,7 +37,7 @@ function _from_git {
     mkdir -p $_tmp
     git clone https://$1/$2/$3 $_tmp/$3 &>/dev/null
     if [ $? -ne 0 ]; then >&2 echo git error; rm -rf $_tmp; return; fi
-    rm -rf $_tmp/$3/.*
+    rm -rf $_tmp/$3/.[^.]*
     _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p')
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
     (cd $_tmp; zip -r -9 $3 -) > files/$3-$_version.zip
