@@ -49,7 +49,7 @@ function _from_git {
         if [ $? -ne 0 ]; then >&2 echo git error; rm -rf $_tmp; return; fi
     fi
     rm -rf $_tmp/$3/.[^.]*
-    _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p')
+    _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p'|cut -d'"' -f1)
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
     mkdir -p files/$3
     (cd $_tmp; zip -r -9 ../files/$3/$3-$_version.zip $3 1>/dev/null)
