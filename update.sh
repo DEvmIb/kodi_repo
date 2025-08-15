@@ -60,6 +60,7 @@ function _from_git {
     rm -rf $_tmp
     git add have/$_last
     git add files/$3/$3-$_version.zip
+    cat have/$_last >> addons.xml
     >&2 echo finished
 }
 
