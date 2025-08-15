@@ -25,7 +25,12 @@ function _from_git {
     if [ "$_tmp" == "" ]; then >&2 echo _tmp is empty; return; fi
     mkdir -p have
     mkdir -p files
-    _last=$(git ls-remote https://$1/$2/$3|head -n1|cut -f1)
+    if [ "$4" == "" ]
+    then
+        _last=$(git ls-remote https://$1/$2/$3|head -n1|cut -f1)
+    else
+        _last=$(git ls-remote https://$1/$2/$3 refs/heads/$4|head -n1|cut -f1)
+    fi
     if [ "$_last" == "" ]; then >&2 echo git error. last checkout is empty.; return; fi
     if [ -e "have/$_last" ]
     then
