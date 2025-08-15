@@ -20,7 +20,7 @@ _gitea_url=$(curl -s -X RAW http://keyserver/gitea-url)
 
 function _from_git {
     local _tmp _version
-    >&2 echo processing $1 $2 $3
+    >&2 echo processing $1 $2 $3 $4
     _tmp=$(date +%s%N)
     if [ "$_tmp" == "" ]; then >&2 echo _tmp is empty; return; fi
     mkdir -p have
@@ -37,6 +37,12 @@ function _from_git {
     mkdir -p $_tmp
     git clone https://$1/$2/$3 $_tmp/$3 &>/dev/null
     if [ $? -ne 0 ]; then >&2 echo git error; rm -rf $_tmp; return; fi
+    if [ ! "$4" == "" ]
+    then
+        echo "checkout $3 -> $4"
+        (cd $_tmp/$3; git checkout $4)
+        if [ $? -ne 0 ]; then >&2 echo git error; rm -rf $_tmp; return; fi
+    fi
     rm -rf $_tmp/$3/.[^.]*
     _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p')
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
@@ -59,6 +65,7 @@ cat << EOF > addons.xml
 EOF
 
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
+_from_git $_gitea_url $_gitea_user service.takealug.epg-grabber 1.1.9
 
 # myself
 tail -n +2 addon.xml >> addons.xml
