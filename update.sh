@@ -14,9 +14,9 @@ fi
 
 mkdir -p files
 
-_gitea_user=$(curl -s -X RAW http://keyserver/gitea-user)
-_gitea_pass=$(curl -s -X RAW http://keyserver/gitea-pass)
-_gitea_url=$(curl -s -X RAW http://keyserver/gitea-url)
+_gitea_user=$(curl -s -X RAW http://keyserver.bunker.home/gitea-user)
+_gitea_pass=$(curl -s -X RAW http://keyserver.bunker.home/gitea-pass)
+_gitea_url=$(curl -s -X RAW http://keyserver.bunker.home/gitea-url)
 
 function _from_git {
     local _tmp _version
