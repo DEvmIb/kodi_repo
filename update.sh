@@ -80,7 +80,7 @@ EOF
 
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber 1.1.9
-_from_git https://github.com sunsettrack4 service.takealug.epg-grabber "" "main"
+_from_git github.com sunsettrack4 service.takealug.epg-grabber "" "main"
 
 # myself
 tail -n +2 addon.xml >> addons.xml
