@@ -99,3 +99,5 @@ echo $_md5 > addons.xml.md5
 git commit -a -m "repo update" 1> /dev/null
 git push https://$_gitea_user:$_gitea_pass@$_gitea_url/$_gitea_user/kodi_repo 1> /dev/null
 git pull 1> /dev/null
+
+exit 0
