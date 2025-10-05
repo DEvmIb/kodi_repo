@@ -107,9 +107,11 @@ _md5=$(md5sum addons.xml|cut -d' ' -f1)
 echo md5: $_md5
 echo $_md5 > addons.xml.md5
 
+_repo_version=1.$(date +%s)
+
 cat << EOF > addon.xml.tmp
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.ad0lar" name="DEvmIb Repository" version="1.$(date +%s)" provider-name="Ad0lar, fds97AVVS, DEvmIb">
+<addon id="repository.ad0lar" name="DEvmIb Repository" version="1.0" provider-name="Ad0lar, fds97AVVS, DEvmIb">
 EOF
 
 tail -n +3 addon.xml >> addon.xml.tmp
