@@ -101,7 +101,14 @@ _md5=$(md5sum addons.xml|cut -d' ' -f1)
 echo md5: $_md5
 echo $_md5 > addons.xml.md5
 
-sed -i 's#.*name="DEvmIb Repository" version="\(.*\)".*#name="DEvmIb Repository" version="'$(date %s)'"#g' addon.xml
+cat << EOF > addon.xml.tmp
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.ad0lar" name="DEvmIb Repository" version="$(date +%s)" provider-name="Ad0lar, fds97AVVS, DEvmIb">
+EOF
+
+tail -n +2 addon.xml >> addon.xml.tmp
+
+mv addon.xml.tmp addon.xml
 
 git config pull.rebase false &>/dev/null
 git commit -a -m "repo update" 1> /dev/null

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-name="DEvmIb Repository" version=""
+<addon id="repository.ad0lar" name="DEvmIb Repository" version="1759677258" provider-name="Ad0lar, fds97AVVS, DEvmIb">
+<addon id="repository.ad0lar" name="DEvmIb Repository" version="1.0" provider-name="Ad0lar, fds97AVVS, DEvmIb">
     <requires>
         <import addon="xbmc.addon" version="12.0.0"/>
     </requires>
