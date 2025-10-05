@@ -77,7 +77,7 @@ function _from_git {
     rm -rf $_tmp
     git add have/$_last
     git add files/$3/$3-$_version.zip
-    cat have/$_last >> addons.xml
+    #cat have/$_last >> addons.xml
     >&2 echo finished
 }
 
@@ -90,6 +90,8 @@ EOF
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber 1.1.9
 _from_git github.com sunsettrack4 script.service.easyepg-lite "" "main"
+
+cat have/* >> addons.xml
 
 # myself
 tail -n +2 addon.xml >> addons.xml
