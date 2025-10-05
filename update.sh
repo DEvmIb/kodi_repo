@@ -65,6 +65,7 @@ function _from_git {
     zip -T files/$3/$3-$_version.zip 1>/dev/null
     if [ $? -ne 0 ]; then >&2 echo testing zip failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
     tail -n +2 $_tmp/$3/addon.xml > have/$_last
+    sed -i 's#version="\(.*\)"#version="'$_version'"#g' have/$_last
     rm -rf $_tmp
     git add have/$_last
     git add files/$3/$3-$_version.zip

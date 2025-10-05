@@ -1,6 +1,6 @@
-<addon id="script.service.easyepg-lite" name="easyepg lite" version="1.0.0" provider-name="Jan-Luca Neumann">
+<addon id="script.service.easyepg-lite" name="easyepg lite" version="1759674697.52cb60b~git">
   <requires>
-      <import addon="xbmc.python" version="3.0.0"/>
+      <import addon="xbmc.python" version="1759674697.52cb60b~git"/>
             <import addon="script.module.requests"/>
             <import addon="script.module.bottle"/>
             <import addon="script.module.xmltodict"/>
