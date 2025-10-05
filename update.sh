@@ -103,10 +103,10 @@ echo $_md5 > addons.xml.md5
 
 cat << EOF > addon.xml.tmp
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.ad0lar" name="DEvmIb Repository" version="$(date +%s)" provider-name="Ad0lar, fds97AVVS, DEvmIb">
+<addon id="repository.ad0lar" name="DEvmIb Repository" version="1.$(date +%s)" provider-name="Ad0lar, fds97AVVS, DEvmIb">
 EOF
 
-tail -n +2 addon.xml >> addon.xml.tmp
+tail -n +3 addon.xml >> addon.xml.tmp
 
 mv addon.xml.tmp addon.xml
 
