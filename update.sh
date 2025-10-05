@@ -51,8 +51,11 @@ function _from_git {
     rm -rf $_tmp/$3/.[^.]*
     if [ "$5" == "" ]
     then
+        _m=1
         _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p'|cut -d'"' -f1)
     else
+        _m=2
+        _version_old=_version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p'|cut -d'"' -f1)
         _version_date=$(cd "$_tmp/$3"; git reflog --date=local "$5"|head -n1|cut -d'{' -f2|cut -d'}' -f1)
         _version_date=$(date -d "$_version_date" +%s)
         _version=$(cd "$_tmp/$3"; git reflog --date=local "$5"|head -n1|cut -d' ' -f1)
@@ -65,7 +68,7 @@ function _from_git {
     zip -T files/$3/$3-$_version.zip 1>/dev/null
     if [ $? -ne 0 ]; then >&2 echo testing zip failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
     tail -n +2 $_tmp/$3/addon.xml > have/$_last
-    sed -i 's#version="\(.*\)"#version="'$_version'"#g' have/$_last
+    sed -i 's#version="'$_version_old'"#version="'$_version'"#g' have/$_last
     rm -rf $_tmp
     git add have/$_last
     git add files/$3/$3-$_version.zip
