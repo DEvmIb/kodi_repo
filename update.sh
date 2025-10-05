@@ -35,7 +35,7 @@ function _from_git {
     if [ -e "have/$_last" ]
     then
         >&2 echo using latest
-        cat have/$_last >> addons.xml
+        #cat have/$_last >> addons.xml
         return
     fi
     
