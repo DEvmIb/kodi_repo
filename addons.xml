@@ -70,7 +70,7 @@
             ]]>
         </news>
     </extension>
-</addon><addon id="script.service.easyepg-lite" name="easyepg lite" version="1759675943.7ddfed9~git" provider-name="Jan-Luca Neumann">
+</addon><addon id="script.service.easyepg-lite" name="easyepg lite" version="1759677281.e8ccbdd~git" provider-name="Jan-Luca Neumann">
   <requires>
       <import addon="xbmc.python" version="3.0.0"/>
             <import addon="script.module.requests"/>
@@ -100,7 +100,7 @@
       <screenshot>screenshot-4.jpg</screenshot>
     </assets>
   </extension>
-</addon><addon id="repository.ad0lar" name="DEvmIb Repository" version="1759677258" provider-name="Ad0lar, fds97AVVS, DEvmIb">
+</addon><addon id="repository.ad0lar" name="DEvmIb Repository" version="1.1759677281" provider-name="Ad0lar, fds97AVVS, DEvmIb">
     <requires>
         <import addon="xbmc.addon" version="12.0.0"/>
     </requires>

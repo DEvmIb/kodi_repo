@@ -1,4 +1,4 @@
-<addon id="script.service.easyepg-lite" name="easyepg lite" version="1759675943.7ddfed9~git" provider-name="Jan-Luca Neumann">
+<addon id="script.service.easyepg-lite" name="easyepg lite" version="1759677281.e8ccbdd~git" provider-name="Jan-Luca Neumann">
   <requires>
       <import addon="xbmc.python" version="3.0.0"/>
             <import addon="script.module.requests"/>

@@ -62,7 +62,11 @@ function _from_git {
         _version=$(cd "$_tmp/$3"; git reflog --date=local "$5"|head -n1|cut -d' ' -f1)
         _version="$_version_date.$_version~git"
     fi
+
+
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
+    #version="1.0.0" provider-name="Jan-Luca Neumann"
+    (cd $_tmp;sed -i 's#version="'$_version_old'"#version="'$_version'"#g' $3/addon.xml)
     mkdir -p files/$3
     (cd $_tmp; zip -r -9 ../files/$3/$3-$_version.zip $3 1>/dev/null)
     if [ $? -ne 0 ]; then >&2 echo zipping failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
