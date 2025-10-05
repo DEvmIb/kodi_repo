@@ -55,7 +55,7 @@ function _from_git {
         _version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p'|cut -d'"' -f1)
     else
         _m=2
-        _version_old=_version=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p'|cut -d'"' -f1)
+        _version_old=$(tail -n +2 $_tmp/$3/addon.xml|grep version|head -n1|sed -n 's#.*version="\(.*\)".*#\1#p'|cut -d'"' -f1)
         echo $_version_old
         _version_date=$(cd "$_tmp/$3"; git reflog --date=local "$5"|head -n1|cut -d'{' -f2|cut -d'}' -f1)
         _version_date=$(date -d "$_version_date" +%s)
