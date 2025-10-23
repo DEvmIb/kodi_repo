@@ -87,6 +87,7 @@ cat << EOF > addons.xml
 <addons>
 EOF
 
+_from_git $_gitea_url $_gitea_user plugin.video.rakuten.de
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber 1.1.9
 _from_git github.com sunsettrack4 script.service.easyepg-lite "" "main"
