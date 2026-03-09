@@ -1,0 +1,31 @@
+<addon id="plugin.video.ad0lar-invidious" name="ad0lar's invidious client" version="1.0.0" provider-name="ad0lar">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.urllib3"/>
+        <import addon="inputstream.adaptive"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_US">private invidious client</summary>
+        <description lang="en_US">a simple plugin to use a private invidious instance with support for search, subscriptions and trending content via inputstream adaptive.</description>
+        <disclaimer lang="en_US">this addon is not affiliated with youtube or invidious.</disclaimer>
+        <language>en</language>
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.png</fanart>
+            <screenshot>fanart.png</screenshot>
+        </assets>
+        <source>https://github.com/DEvmIb/kodi_repo</source>
+        <website>https://www.kodinerds.net/thread/80400-bunker-home/</website>
+        <forum>https://www.kodinerds.net/thread/80400-bunker-home/</forum>
+        <news lang="en"><![CDATA[
+            1.0.0 (2026-03-09)
+                - first release
+            ]]>
+        </news>
+    </extension>
+</addon>
