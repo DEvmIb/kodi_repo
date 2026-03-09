@@ -65,9 +65,16 @@ function _from_git {
 
 
     if [ "$_version" == "" ]; then >&2 echo error addon version is empty; rm -rf $_tmp; return; fi
-    #version="1.0.0" provider-name="Jan-Luca Neumann"
     (cd $_tmp;sed -i 's#version="'$_version_old'"#version="'$_version'"#g' $3/addon.xml)
     mkdir -p files/$3
+    if [ -e "$_tmp/$3/icon.png" ] || [ -e "$_tmp/$3/icon.png" ]
+    then
+        cp "$_tmp/$3/icon."* files/$3
+    fi
+    if [ -e "$_tmp/$3/fanart.png" ] || [ -e "$_tmp/$3/fanart.png" ]
+    then
+        cp "$_tmp/$3/fanart."* files/$3
+    fi
     (cd $_tmp; zip -r -9 ../files/$3/$3-$_version.zip $3 1>/dev/null)
     if [ $? -ne 0 ]; then >&2 echo zipping failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
     zip -T files/$3/$3-$_version.zip 1>/dev/null
@@ -87,6 +94,7 @@ cat << EOF > addons.xml
 <addons>
 EOF
 
+_from_git $_gitea_url $_gitea_user plugin.video.adolar-olympia
 _from_git $_gitea_url $_gitea_user plugin.video.skych-vods
 _from_git $_gitea_url $_gitea_user plugin.video.ad0lar-invidious
 _from_git $_gitea_url $_gitea_user service.takealug.epg-grabber
