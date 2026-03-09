@@ -1,0 +1,20 @@
+<addon id="plugin.video.skych-vods" name="Sky CH VODS API Client" version="0.1" provider-name="fds97AVVS + Publish3r">
+  <requires>
+      <import addon="xbmc.python" version="3.0.0"/>
+      <import addon="script.module.requests"/>
+      <import addon="inputstream.adaptive"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="main.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Sky CH VODs</summary>
+    <description lang="en_GB">Video addon providing VOD streams by Sky Switzerland</description>
+    <description lang="de_DE">Video-Addon zur Wiedergabe der VOD-Streams von Sky Switzerland</description>
+    <platform>all</platform>
+    <license>GPL-3.0-or-later</license>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
