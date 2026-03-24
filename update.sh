@@ -70,10 +70,12 @@ function _from_git {
     if [ -e "$_tmp/$3/icon.png" ] || [ -e "$_tmp/$3/icon.png" ]
     then
         cp "$_tmp/$3/icon."* files/$3
+        git add files/$3
     fi
     if [ -e "$_tmp/$3/fanart.png" ] || [ -e "$_tmp/$3/fanart.png" ]
     then
         cp "$_tmp/$3/fanart."* files/$3
+        files/$3
     fi
     (cd $_tmp; zip -r -9 ../files/$3/$3-$_version.zip $3 1>/dev/null)
     if [ $? -ne 0 ]; then >&2 echo zipping failed.; rm -f files/$3/$3-$_version.zip; rm -rf $_tmp; return; fi
