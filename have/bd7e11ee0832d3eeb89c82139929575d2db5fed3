@@ -1,0 +1,20 @@
+<addon id="plugin.video.wpu-vods" name="WPU VODS API Client" version="0.1" provider-name="fds97AVVS">
+  <requires>
+      <import addon="xbmc.python" version="3.0.0"/>
+      <import addon="script.module.requests"/>
+      <import addon="inputstream.adaptive"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="main.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">WPU VODs</summary>
+    <description lang="en_GB">Video addon providing VOD streams by WPUTHEK</description>
+    <description lang="de_DE">Video-Addon zur Wiedergabe der VOD-Streams von WPUTHEK</description>
+    <platform>all</platform>
+    <license>GPL-3.0-or-later</license>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
