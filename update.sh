@@ -96,6 +96,7 @@ cat << EOF > addons.xml
 <addons>
 EOF
 
+_from_git $_gitea_url $_gitea_user plugin.video.magenta-vods
 _from_git $_gitea_url $_gitea_user plugin.video.wpu-vods
 _from_git $_gitea_url $_gitea_user plugin.video.adolar-olympia
 _from_git $_gitea_url $_gitea_user plugin.video.skych-vods
