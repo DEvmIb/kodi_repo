@@ -284,7 +284,27 @@
             ]]>
         </news>
     </extension>
-</addon><addon id="plugin.video.adolar-olympia" name="Olympia Streams by Ad0lar &amp; Schnuffi" version="0.0.8" provider-name="Ad0lar">
+</addon><addon id="plugin.video.telerising-exp" name="Telerising-EXP" version="0.5" provider-name="Publish3r, notSupported">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" />
+    <import addon="inputstream.adaptive" minversion="21.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Telerising-EXP</summary>
+    <description lang="en_GB">Watch Streams from Telerising.</description>
+    <language>en</language>
+    <platform>all</platform>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+<addon id="plugin.video.adolar-olympia" name="Olympia Streams by Ad0lar &amp; Schnuffi" version="0.0.8" provider-name="Ad0lar">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.requests" />
