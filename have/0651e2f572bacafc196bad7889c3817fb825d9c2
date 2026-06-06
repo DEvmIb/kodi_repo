@@ -1,0 +1,24 @@
+<addon id="plugin.video.telerising-exp" name="Telerising-EXP" version="1.2" provider-name="Publish3r, Ad0lar">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.requests" />
+    <import addon="inputstream.adaptive" minversion="20.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Telerising-EXP</summary>
+    <description lang="en_GB">Watch Streams from Telerising.</description>
+    <news>
+      1.2
+        - disable l1 use l3
+    </news>
+    <language>en</language>
+    <platform>all</platform>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
